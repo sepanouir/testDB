@@ -4,6 +4,9 @@ from wtforms.validators import InputRequired, Length, AnyOf,Email,EqualTo
 from wtforms import StringField,EmailField,SubmitField
 from flask_wtf import FlaskForm 
 from flask_bootstrap import Bootstrap
+import random
+import string
+import datetime
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tigmtikqbzwerf:b301996756834337f82a634cfcd69734c5ba87a0dceebadc8f65a49e7dc30b94@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/dcvelmj44a06do'
@@ -38,8 +41,14 @@ class UserForm(FlaskForm):
 
 
 
-
-
+@app.route('/users',methods=['GET','POST'])
+def users():
+    letters = string.ascii_lowercase
+    username = ''.join(random.choice(letters) for i in range(10))
+    email = str(datetime.datetime.now())+'@gmail.com'
+    db.session.add(User(username=username,email=email))
+    db.session.commit()
+    return 'done'
 @app.route('/users',methods=['GET','POST'])
 def users():
     form = UserForm()
