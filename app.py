@@ -9,7 +9,7 @@ import string
 import datetime
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tigmtikqbzwerf:b301996756834337f82a634cfcd69734c5ba87a0dceebadc8f65a49e7dc30b94@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/dcvelmj44a06do'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tigmtikqbzwerf:b301996756834337f82a634cfcd69734c5ba87a0dceebadc8f65a49e7dc30b94@ec2-52-212-228-71.eu-west-1.compute.amazonaws.com:5432/dcvelmj44a06do'
 app.config['SECRET_KEY'] = 'sqlite:///test.db'
 db = SQLAlchemy(app)
 bootstrap=Bootstrap(app=app)
