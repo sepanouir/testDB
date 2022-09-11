@@ -41,8 +41,8 @@ class UserForm(FlaskForm):
 
 
 
-@app.route('/users',methods=['GET','POST'])
-def users():
+@app.route('/addUser',methods=['GET','POST'])
+def addUser():
     letters = string.ascii_lowercase
     username = ''.join(random.choice(letters) for i in range(10))
     email = str(datetime.datetime.now())+'@gmail.com'
